@@ -214,4 +214,4 @@ SELECT name FROM students;
 </table>
 
 <p>📎 Reference Link<br>
-To check SQL Commands, click here: <a href="SQL Commands">SQL Command</a></p>
+To check SQL Commands, click here: <a href="SQL Commands">SQL Commands</a></p>
