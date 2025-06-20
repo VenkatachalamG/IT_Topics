@@ -87,9 +87,9 @@ WHERE NOT country = 'USA';
 SELECT name, price FROM products
 WHERE price BETWEEN 1000 AND 3000;
 
--- Students with marks between 70 and 90
+-- Alternate of BETWEEN operator is to use Comparison Operators
 SELECT name, marks FROM students
-WHERE marks BETWEEN 70 AND 90;
+WHERE marks >=70 AND marks <= 90;
 </code></pre>
 
 <hr>
