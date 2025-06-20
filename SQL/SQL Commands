@@ -1,0 +1,305 @@
+### SELECT
+
+Used to retrieve data.
+
+```sql
+SELECT [columns / *] FROM [table_name];
+-- * selects all columns
+
+```
+
+### WHERE clause
+
+Filters data based on condition.
+
+```sql
+SELECT name FROM customers
+WHERE country = 'India';
+
+```
+
+### ORDER BY clause
+
+Sorts data.
+
+```sql
+SELECT [record]
+FROM [table_name]
+ORDER BY [field] [ASC | DESC];
+
+```
+
+### ⚠️ Rule:
+
+ Default is **ASC (ascending)**, but **always mention ASC/DESC** to avoid confusion.
+
+---
+
+## GROUP BY Clause
+
+Used to **aggregate** rows with the same value in a column and display fewer records.
+
+```sql
+SELECT country, SUM(score)
+FROM customers
+GROUP BY country;
+
+```
+
+### Aliasing in GROUP BY
+
+```sql
+SELECT country, SUM(score) AS total, COUNT(id) 
+FROM customers
+GROUP BY COUNT(id), country;
+
+```
+
+- Used for giving a name to a **aggregated column**
+- `AS total` gives a name to the aggregated field
+- Alias only affects that query; doesn’t rename column in table
+- **COUNT** can be used to combine unique fields like **‘id’** , **‘name’**, etc
+
+### ⚠️ Rule:
+
+All **selected fields must be in the `GROUP BY` clause** or it will throw an error.
+
+### Using HAVING to filter GROUP BY
+
+```sql
+-- This is the having query along with the group by
+select
+	[columns/*]
+from [table_name]
+where [condition]
+group by [field_name / column]
+having [condition]
+```
+
+- **Used to filter groups** **after aggregation**
+- Works **with aggregate functions** like `COUNT()`, `SUM()`, `AVG()`, etc.
+- Comes **after `GROUP BY`** in query order
+- Acts like a `WHERE` clause, but for aggregated results
+- **`HAVING COUNT(id) > 1`** → filters only those groups having more than one row
+
+---
+
+### ⚠️ Rule:
+
+You **cannot use `HAVING` without `GROUP BY`** *unless* you're aggregating the **entire table as one group**.
+
+### Using DISTINCT
+
+```sql
+-- This is the query using distinct keyword
+select distinct 
+	[field / column(s)]
+from [table_name]
+```
+
+- **Used to return only unique values**
+- Eliminates **duplicate rows** from the result set
+- Can be applied to **single or multiple columns**
+- Works **after the `SELECT`** keyword
+    
+    → Example: `SELECT DISTINCT name FROM employees;`
+    
+- When used on **multiple columns**, it returns **unique combinations**
+
+---
+
+### ⚠️ Rule:
+
+`DISTINCT` applies to **all columns listed after it**, **not** just the first one.
+
+### Using TOP
+
+```sql
+-- This is the query using TOP keyword
+SELECT TOP (n)
+	[field / column(s)]
+FROM [table_name]
+
+```
+
+- **Used to limit the number of rows** returned by a query
+- `TOP n` returns only the **first n rows**
+- Commonly used for **previewing data** or **pagination**
+- Often combined with **`ORDER BY`** to control which rows appear
+    
+    → Example: `SELECT TOP 5 * FROM employees ORDER BY salary DESC;`
+    
+
+---
+
+### ⚠️ Rule:
+
+- **Without `ORDER BY`**, the rows returned by `TOP` are **not guaranteed to be consistent**
+
+### Using CREATE
+
+```sql
+-- This is the query using CREATE keyword
+CREATE TABLE [table_name] (
+	column1 datatype,
+	column2 datatype,
+	...
+);
+
+```
+
+- **Used to create new database objects**, like:
+    - **Tables**, **Views**, **Indexes**, **Databases**, etc.
+- Most commonly used to **create new tables**
+- Requires specifying:
+    - **Table name**
+    - **Column names** and **their data types**
+- Can include constraints like:
+    - `PRIMARY KEY`, `NOT NULL`, `UNIQUE`, `DEFAULT`, etc.
+
+---
+
+### ⚠️ Rule:
+
+- If a table **with the same name already exists**, `CREATE TABLE` will throw an error
+
+### Using DROP
+
+```sql
+-- To drop a table completely
+DROP TABLE [table_name];
+
+-- To drop a column (field) from a table
+ALTER TABLE [table_name] DROP COLUMN [column_name];
+
+```
+
+- **Used to permanently remove** database objects like:
+    - **Tables**, **Columns**, **Databases**, **Views**, etc.
+- `DROP TABLE` deletes the **entire table** and all its data
+- `DROP COLUMN` removes only a **specific column** from a table
+- Cannot be undone (unless supported by rollback/transactions)
+
+> Example 1:
+> 
+
+```sql
+DROP TABLE employees;
+
+```
+
+> Example 2:
+> 
+
+```sql
+ALTER TABLE employees DROP COLUMN salary;
+
+```
+
+---
+
+### ⚠️ Rule:
+
+- **`DROP TABLE`** will remove **both the table structure and data** permanently
+- **`DROP COLUMN`** requires `ALTER TABLE` and may not be supported in some old RDBMS versions
+- Always use `IF EXISTS` (if supported) to **prevent errors**:
+
+### Using INSERT
+
+```sql
+-- Insert data into all columns
+INSERT INTO [table_name]
+VALUES (value1, value2, ...);
+
+-- Insert data into specific columns
+INSERT INTO [table_name] (column1, column2)
+VALUES (value1, value2);
+
+```
+
+- **Used to add new rows** to a table
+- You can specify **all columns** or only selected ones
+- Must match the **order and data types** of the table schema
+
+> Example:
+> 
+
+```sql
+INSERT INTO employees (id, name, salary)
+VALUES (101, 'Alice', 50000);
+
+```
+
+---
+
+### ⚠️ Rule:
+
+- Omitting column names requires inserting **values for all columns in order**
+- Use **`NULL`** for missing values if allowed by the column definition
+
+### Using UPDATE
+
+```sql
+-- Update values in existing rows
+UPDATE [table_name]
+SET column1 = value1, column2 = value2, ...
+WHERE [condition];
+
+```
+
+- **Used to modify existing data** in a table
+- Can update **one or multiple columns**
+- Always use a **`WHERE` clause** to avoid updating **all rows**
+
+> Example:
+> 
+
+```sql
+UPDATE employees
+SET salary = 60000
+WHERE id = 101;
+
+```
+
+---
+
+### ⚠️ Rule:
+
+- **Without `WHERE`**, all rows in the table will be updated
+- You can use subqueries or expressions in `SET` values
+
+### Using DELETE & TRUNCATE
+
+```sql
+-- Delete specific rows
+DELETE FROM [table_name] WHERE [condition];
+
+-- Delete entire table rows
+DELETE TABLE {table_name] 
+
+-- Delete all rows quickly
+TRUNCATE TABLE [table_name];
+
+```
+
+- Both are used to **remove data from tables**
+- `DELETE` removes **specific rows** using `WHERE`
+- `TRUNCATE` removes **all rows** instantly, **no `WHERE` allowed**
+- `DELETE` is **row-by-row**, slower but **can be rolled back**
+- `TRUNCATE` is faster, resets auto-increment, usually **cannot be rolled back**
+
+> Example:
+> 
+
+```sql
+DELETE FROM employees WHERE id = 101;
+TRUNCATE TABLE employees;
+
+```
+
+---
+
+### ⚠️ Rule:
+
+- **Without `WHERE`**, `DELETE` acts like `TRUNCATE`, but slower
+- `TRUNCATE` is **all or nothing** — use only when **you want a clean slate**

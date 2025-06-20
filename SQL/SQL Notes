@@ -1,107 +1,87 @@
 # SQL Notes
 
-### 📘 Definition of SQL
+## 📘 Definition of SQL
 
-**SQL (Structured Query Language)** is a tool/language used to communicate with a database.
+*SQL (Structured Query Language)* is used to **communicate with databases**.
+
+- Helps retrieve, insert, update, and delete data  
+- Acts as a bridge between user/application and the database
 
 ---
 
-### ❓ Why Use a Database?
+## ❓ Why Use a Database?
 
-- Can store **huge amounts of data**
-- **More secure** than file storage
+- Can store **huge amounts of data**  
+- **More secure** than file storage  
 - **Fast and efficient** data storage and retrieval
 
 ---
 
-### 💾 DBMS Definition
+## 💾 DBMS (Database Management System)
 
-**DBMS (Database Management System)** is software that:
+Software that:
 
-- Handles all requests to a database from various sources (people, applications, websites, etc.)
-- Manages the **priority** of requests
-- Ensures proper **execution** and data access
+- Handles all requests to a database from various sources  
+- Manages the **priority** of requests  
+- Ensures proper **execution** and data access  
 
 ---
 
-### 🖥️ What is a Server?
+## 🖥️ What is a Server?
 
-- Powerful machines available **24/7**
-- They **host databases**
+- **Powerful machines** available *24/7*  
+- They **host databases**  
 - Can be **physical** or hosted on a **Cloud Service Provider (CSP)**
 
 ---
 
 ## 🗃️ Types of Databases
 
-1. **Relational**: Tables with rows & columns, where tables can relate to each other
-2. **Key-Value**: Data stored in key-value pairs (like a dictionary)
-3. **Column**: Data grouped into columns (efficient for large datasets)
-4. **Graph**: Focuses on how objects are connected/related
-5. **Document**: Stores data in documents (structure not enforced)
+### 1. Relational
 
-> Note:
-> 
-- Types 2–5 are grouped as **NoSQL databases**
-- Relational databases are **SQL databases**
+- Tables with **rows and columns**
+- Tables can relate to each other using **keys**
+- SQL-based
+
+### 2. Key-Value
+
+- Stores data in **key–value pairs** (like a dictionary)
+- Fast for **simple lookups**
+
+### 3. Column-Based
+
+- Groups data by **columns**
+- Efficient for **large datasets and analytics**
+
+### 4. Graph
+
+- Stores **relationships** between data
+- Best for **networks**, **recommendations**
+
+### 5. Document
+
+- Stores data as **documents** (e.g., JSON, BSON)
+- Schema-less and flexible
+
+---
 
 ### 🔍 Examples:
 
-| Type | Example DBs |
-| --- | --- |
-| 1. Relational | Microsoft SQL, PostgreSQL |
-| 2. Key-Value | Redis, Amazon DynamoDB |
-| 3. Column | Apache Cassandra, Amazon Redshift |
-| 4. Graph | Neo4j |
-| 5. Document | MongoDB |
+| Type       | Example DBs                         |
+|------------|--------------------------------------|
+| Relational | Microsoft SQL, PostgreSQL           |
+| Key-Value  | Redis, Amazon DynamoDB              |
+| Column     | Apache Cassandra, Amazon Redshift   |
+| Graph      | Neo4j                               |
+| Document   | MongoDB                             |
 
 ---
 
 ## 🧱 Database Hierarchy
 
-```
-pgsql
-CopyEdit
+```pgsql
 SERVER
   └── DATABASES
        └── SCHEMAS (e.g., TEACHERS, STUDENTS)
             └── TABLES
                  └── ROWS & COLUMNS
-
-```
-
-### 📄 Tables
-
-- A **collection of rows (records)** and **columns (fields)**
-- Each record = one entity
-- Contains **Primary Key** (unique identifier)
-- **Cell** = Intersection of row and column
-- Holds various data types: `Numeric`, `Text`, `Date`, `Time`, etc.
-
----
-
-## ⚙️ Types of SQL Commands
-
-### 1. DDL – Data Definition Language
-
-Used to **create/edit database structure**
-
-- `CREATE` – create table
-- `ALTER` – modify table (not cells)
-- `DROP` – delete table
-
-### 2. DML – Data Manipulation Language
-
-Used to **modify data** in tables
-
-- `INSERT` – add a record
-- `UPDATE` – modify a record
-- `DELETE` – delete a record
-
-### 3. DQL – Data Query Language
-
-Used to **retrieve data**
-
-- `SELECT`
-
-To check **SQL Commands** click here : <a link href = "SQL/SQL_Command">SQL Command</a>
