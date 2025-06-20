@@ -1,124 +1,114 @@
-<h1>📘 SQL Notes</h1>
+# 📘 SQL Notes
 
-<hr>
+---
 
-<h2>📘 Definition of SQL</h2>
+## 📘 Definition of SQL
 
-<p><strong>SQL (Structured Query Language)</strong> is used to <strong>communicate with databases</strong>.</p>
+**SQL (Structured Query Language)** is used to **communicate with databases**.
 
-<ul>
-  <li>Helps retrieve, insert, update, and delete data</li>
-  <li>Acts as a bridge between user/application and the database</li>
-</ul>
+- Helps retrieve, insert, update, and delete data  
+- Acts as a bridge between user/application and the database
 
-<hr>
+---
 
-<h2>❓ Why Use a Database?</h2>
+## ❓ Why Use a Database?
 
-<ul>
-  <li>Can store <strong>huge amounts of data</strong></li>
-  <li><strong>More secure</strong> than file storage</li>
-  <li><strong>Fast and efficient</strong> data storage and retrieval</li>
-</ul>
+- Can store **huge amounts of data**  
+- **More secure** than file storage  
+- **Fast and efficient** data storage and retrieval
 
-<hr>
+---
 
-<h2>💾 DBMS (Database Management System)</h2>
+## 💾 DBMS (Database Management System)
 
-<p>Software that:</p>
+Software that:
 
-<ul>
-  <li>Handles all requests to a database from various sources</li>
-  <li>Manages the <strong>priority</strong> of requests</li>
-  <li>Ensures proper <strong>execution</strong> and data access</li>
-</ul>
+- Handles all requests to a database from various sources  
+- Manages the **priority** of requests  
+- Ensures proper **execution** and data access  
 
-<hr>
+---
 
-<h2>🖥️ What is a Server?</h2>
+## 🖥️ What is a Server?
 
-<ul>
-  <li><strong>Powerful machines</strong> available <em>24/7</em></li>
-  <li>They <strong>host databases</strong></li>
-  <li>Can be <strong>physical</strong> or hosted on a <strong>Cloud Service Provider (CSP)</strong></li>
-</ul>
+- **Powerful machines** available *24/7*  
+- They **host databases**  
+- Can be **physical** or hosted on a **Cloud Service Provider (CSP)**
 
-<hr>
+---
 
-<h2>🗃️ Types of Databases</h2>
+## 🗃️ Types of Databases
 
-<h3>1. Relational</h3>
-<ul><li>Tables with <strong>rows and columns</strong></li>
-<li>Tables can relate using <strong>keys</strong></li>
-<li>SQL-based</li></ul>
+### 1. Relational
+- Tables with **rows and columns**
+- Tables can relate to each other using **keys**
+- SQL-based
 
-<h3>2. Key-Value</h3>
-<ul><li>Stores data in <strong>key–value pairs</strong></li>
-<li>Fast for <strong>simple lookups</strong></li></ul>
+### 2. Key-Value
+- Stores data in **key–value pairs** (like a dictionary)
+- Fast for **simple lookups**
 
-<h3>3. Column-Based</h3>
-<ul><li>Groups data by <strong>columns</strong></li>
-<li>Efficient for <strong>large datasets and analytics</strong></li></ul>
+### 3. Column-Based
+- Groups data by **columns**
+- Efficient for **large datasets and analytics**
 
-<h3>4. Graph</h3>
-<ul><li>Stores <strong>relationships</strong> between data</li>
-<li>Best for <strong>networks</strong>, <strong>recommendations</strong></li></ul>
+### 4. Graph
+- Stores **relationships** between data
+- Best for **networks**, **recommendations**
 
-<h3>5. Document</h3>
-<ul><li>Stores data as <strong>documents</strong> (e.g., JSON, BSON)</li>
-<li>Schema-less and flexible</li></ul>
+### 5. Document
+- Stores data as **documents** (e.g., JSON, BSON)
+- Schema-less and flexible
 
-<h3>🔍 Examples:</h3>
+---
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Example DBs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Relational</td><td>Microsoft SQL, PostgreSQL</td></tr>
-    <tr><td>Key-Value</td><td>Redis, Amazon DynamoDB</td></tr>
-    <tr><td>Column</td><td>Apache Cassandra, Amazon Redshift</td></tr>
-    <tr><td>Graph</td><td>Neo4j</td></tr>
-    <tr><td>Document</td><td>MongoDB</td></tr>
-  </tbody>
-</table>
+### 🔍 Examples:
 
-<hr>
+| Type       | Example DBs                         |
+|------------|--------------------------------------|
+| Relational | Microsoft SQL, PostgreSQL            |
+| Key-Value  | Redis, Amazon DynamoDB               |
+| Column     | Apache Cassandra, Amazon Redshift    |
+| Graph      | Neo4j                                |
+| Document   | MongoDB                              |
 
-<h2>🧱 Database Hierarchy</h2>
+---
 
-<pre>
+## 🧱 Database Hierarchy
+
 SERVER
 └── DATABASES
-    └── SCHEMAS (e.g., TEACHERS, STUDENTS)
-        └── TABLES
-            └── ROWS & COLUMNS
-</pre>
+└── SCHEMAS (e.g., TEACHERS, STUDENTS)
+└── TABLES
+└── ROWS & COLUMNS
 
-<hr>
+pgsql
+Copy
+Edit
 
-<h2>📄 Tables</h2>
+---
 
-<ul>
-  <li>A <strong>collection of rows (records)</strong> and <strong>columns (fields)</strong></li>
-  <li>Each <strong>row</strong> = one <strong>entity</strong></li>
-  <li>Each <strong>column</strong> = one <strong>attribute/field</strong></li>
-  <li><strong>Cell</strong> = Intersection of row and column</li>
-  <li>Contains a <strong>Primary Key</strong> (unique identifier)</li>
-  <li>Holds various data types: <code>Numeric</code>, <code>Text</code>, <code>Date</code>, <code>Time</code>, etc.</li>
-</ul>
+## 📄 Tables
 
-<hr>
+- A **collection of rows (records)** and **columns (fields)**
+- Each **row** = one **entity**
+- Each **column** = one **attribute/field**
+- **Cell** = Intersection of row and column
+- Contains a **Primary Key** (unique identifier)
+- Holds various data types: `Numeric`, `Text`, `Date`, `Time`, etc.
 
-<h2>⚙️ Types of SQL Commands</h2>
+---
 
-<h3>1. DDL – Data Definition Language</h3>
-<p><em>Used to define or modify database structure.</em></p>
+## ⚙️ Types of SQL Commands
 
-<pre><code>-- Create a new table
+---
+
+### 1. DDL – Data Definition Language
+
+*Used to define or modify database structure.*
+
+```sql
+-- Create a new table
 CREATE TABLE students (
     id INT PRIMARY KEY,
     name VARCHAR(50)
@@ -129,19 +119,24 @@ ALTER TABLE students ADD age INT;
 
 -- Drop a table
 DROP TABLE students;
-</code></pre>
+🛑 Rule
+CREATE
+Attempting to CREATE a table that already exists will throw an error.
 
-<h4>🛑 Rule</h4>
-<ul>
-  <li><strong>CREATE</strong> – Attempting to create a table that already exists will throw an error.</li>
-  <li><strong>ALTER</strong> – Allows structural changes like adding/removing columns.</li>
-  <li><strong>DROP</strong> – Deletes the table structure and all data inside.</li>
-</ul>
+ALTER
+ALTER allows structural changes like adding or removing columns.
 
-<h3>2. DML – Data Manipulation Language</h3>
-<p><em>Used to modify data in tables.</em></p>
+DROP
+DROP will remove the structure and all data from the table.
 
-<pre><code>-- Insert data
+2. DML – Data Manipulation Language
+Used to modify data in tables.
+
+💻 SQL Examples
+sql
+Copy
+Edit
+-- Insert data
 INSERT INTO students (id, name)
 VALUES (1, 'John');
 
@@ -153,65 +148,50 @@ WHERE id = 1;
 -- Delete data
 DELETE FROM students
 WHERE id = 1;
-</code></pre>
+🔧 Command Summary
+INSERT – Add a new record
 
-<h4>🔧 Command Summary</h4>
-<ul>
-  <li><strong>INSERT</strong> – Add a new record</li>
-  <li><strong>UPDATE</strong> – Modify existing data</li>
-  <li><strong>DELETE</strong> – Remove a record</li>
-</ul>
+UPDATE – Modify existing data
 
-<h4>⚠️ Rules</h4>
-<ul>
-  <li>Always use <code>WHERE</code> with <code>UPDATE</code> and <code>DELETE</code> to avoid affecting all rows.</li>
-  <li><code>VALUES</code> must match the order and type of columns in the table.</li>
-</ul>
+DELETE – Remove a record
 
-<h3>3. DQL – Data Query Language</h3>
-<p><em>Used to retrieve data from tables.</em></p>
+⚠️ Rules
+Always use WHERE with UPDATE and DELETE to avoid affecting all rows.
 
-<pre><code>-- Select all columns
+VALUES must match the order and type of columns in the table.
+
+3. DQL – Data Query Language
+Used to retrieve data from tables.
+
+💻 SQL Examples
+sql
+Copy
+Edit
+-- Select all columns
 SELECT * FROM students;
 
 -- Select specific column
 SELECT name FROM students;
-</code></pre>
+📋 Command Summary
+SELECT – Used to fetch data from tables
 
-<h4>📋 Command Summary</h4>
-<ul>
-  <li><strong>SELECT</strong> – Used to fetch data from tables</li>
-  <li>Can be combined with clauses: <code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>, <code>HAVING</code>, <code>LIMIT</code>, etc.</li>
-</ul>
+Can be combined with clauses: WHERE, ORDER BY, GROUP BY, HAVING, LIMIT, etc.
 
-<h4>⚠️ Rules</h4>
-<ul>
-  <li>Use <code>*</code> to select all columns, or list specific ones for performance and clarity.</li>
-  <li>Combine <code>SELECT</code> with filters to get targeted data.</li>
-</ul>
+⚠️ Rules
+Use * to select all columns, or list specific columns for better performance.
 
-<hr>
+Combine SELECT with conditions to filter, sort, and aggregate data.
 
-<h2>📌 Quick Summary of SQL Commands</h2>
+📌 Quick Summary of SQL Commands
+Category	Command	Purpose
+DDL	CREATE	Create new tables/databases
+ALTER	Modify structure of tables
+DROP	Delete tables/databases
+DML	INSERT	Add new data
+UPDATE	Change existing data
+DELETE	Remove data
+DQL	SELECT	Query and retrieve data
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Command</th>
-      <th>Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>DDL</td><td>CREATE</td><td>Create new tables/databases</td></tr>
-    <tr><td>DDL</td><td>ALTER</td><td>Modify structure of tables</td></tr>
-    <tr><td>DDL</td><td>DROP</td><td>Delete tables/databases</td></tr>
-    <tr><td>DML</td><td>INSERT</td><td>Add new data</td></tr>
-    <tr><td>DML</td><td>UPDATE</td><td>Change existing data</td></tr>
-    <tr><td>DML</td><td>DELETE</td><td>Remove data</td></tr>
-    <tr><td>DQL</td><td>SELECT</td><td>Query and retrieve data</td></tr>
-  </tbody>
-</table>
-
-<p>📎 Reference Link<br>
-To check SQL Commands, click here: <a href="SQL Commands">SQL Command</a></p>
+📎 Reference Link
+To check SQL Commands, click here:
+SQL Command <!-- Replace `#` with the actual URL if available -->
