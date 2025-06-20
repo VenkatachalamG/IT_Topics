@@ -8,8 +8,8 @@
 
 | Folder/File | Description |
 |-------------|-------------|
-| 📂 `Git/` | Concepts, commands, and workflows related to Git version control |
-| 📂 `SQL/` | Comprehensive SQL notes with syntax, examples, and command breakdown |
+| [📂 `Git/`](Git) | Concepts, commands, and workflows related to Git version control |
+| [📂 `SQL/`](SQL) | Comprehensive SQL notes with syntax, examples, and command breakdown |
 | 📄 `README.md` | This file – overview of the repository |
 
 ---
