@@ -223,4 +223,4 @@ TRUNCATE TABLE employees;
 </table>
 
 <h2>📎 Reference</h2>
-<p>Check out more on SQL commands here: <a href="#">SQL Command</a></p>
+<p>Check out the SQL notes here: <a href="SQL/SQL Notes.md">SQL Notes</a></p>
