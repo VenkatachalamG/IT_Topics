@@ -30,13 +30,23 @@
 &lt;expression&gt; &lt;operator&gt; &lt;expression&gt;
 </code></pre>
 
-<p><strong>Examples:</strong></p>
+<h3>📌 Example Queries</h3>
 <pre><code class="sql">
-first_name = last_name
-first_name = 'John'
-UPPER(first_name) = 'JOHN'
-price * 5 = 100
-SELECT SUM(score) = 500 FROM customers;
+-- Employees with name 'John'
+SELECT * FROM employees
+WHERE first_name = 'John';
+
+-- Products with price not equal to 500
+SELECT name, price FROM products
+WHERE price != 500;
+
+-- Customers older than 30
+SELECT * FROM customers
+WHERE age > 30;
+
+-- Books cheaper than or equal to ₹400
+SELECT title, price FROM books
+WHERE price <= 400;
 </code></pre>
 
 <hr>
@@ -51,19 +61,19 @@ SELECT SUM(score) = 500 FROM customers;
   <li><strong>NOT</strong> – Reverses the logical result</li>
 </ul>
 
-<h3>✅ AND Operator</h3>
+<h3>✅ Example Queries</h3>
 <pre><code class="sql">
-country = 'USA' AND score > 500
-</code></pre>
+-- High-scoring students from India
+SELECT * FROM students
+WHERE country = 'India' AND score > 90;
 
-<h3>🔁 OR Operator</h3>
-<pre><code class="sql">
-country = 'UK' OR score > 200
-</code></pre>
+-- Employees in HR or Admin department
+SELECT * FROM employees
+WHERE department = 'HR' OR department = 'Admin';
 
-<h3>🚫 NOT Operator</h3>
-<pre><code class="sql">
-country != 'USA'
+-- Customers not from USA
+SELECT * FROM customers
+WHERE NOT country = 'USA';
 </code></pre>
 
 <hr>
@@ -73,7 +83,13 @@ country != 'USA'
 <p><strong>Purpose:</strong> Checks if a value falls within a range.</p>
 
 <pre><code class="sql">
-score BETWEEN 100 AND 500
+-- Products priced between 1000 and 3000
+SELECT name, price FROM products
+WHERE price BETWEEN 1000 AND 3000;
+
+-- Students with marks between 70 and 90
+SELECT name, marks FROM students
+WHERE marks BETWEEN 70 AND 90;
 </code></pre>
 
 <hr>
@@ -84,7 +100,13 @@ score BETWEEN 100 AND 500
 <p><strong>NOT IN</strong> – Returns <code>TRUE</code> if the value does <em>not</em> exist in the list</p>
 
 <pre><code class="sql">
-country IN ('USA', 'UK')
+-- Customers from selected countries
+SELECT * FROM customers
+WHERE country IN ('USA', 'Canada', 'UK');
+
+-- Exclude certain job roles
+SELECT * FROM employees
+WHERE role NOT IN ('Intern', 'Contractor');
 </code></pre>
 
 <hr>
@@ -94,7 +116,17 @@ country IN ('USA', 'UK')
 <p><strong>Purpose:</strong> Used to search for patterns in a column.</p>
 
 <pre><code class="sql">
-first_name LIKE 'M%'
+-- Names starting with 'M'
+SELECT * FROM students
+WHERE first_name LIKE 'M%';
+
+-- Emails containing 'gmail'
+SELECT * FROM users
+WHERE email LIKE '%gmail%';
+
+-- Names ending in 'son'
+SELECT * FROM customers
+WHERE last_name LIKE '%son';
 </code></pre>
 
 <h3>🧷 Wildcard Symbols:</h3>
@@ -103,7 +135,7 @@ first_name LIKE 'M%'
   <li><code>_</code> → Exactly one character</li>
 </ul>
 
-<h3>💡 LIKE Examples:</h3>
+<h3>💡 LIKE Pattern Matching Table:</h3>
 
 <table>
   <thead>
