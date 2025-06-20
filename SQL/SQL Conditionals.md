@@ -152,3 +152,6 @@ WHERE last_name LIKE '%son';
     <tr><td><code>%r%</code></td><td>Rayn</td><td>Alice</td></tr>
   </tbody>
 </table>
+
+<h2>📎 Reference</h2>
+<p>Check out the full SQL Notes: <a href="SQL Notes.md">SQL Notes</a></p>
