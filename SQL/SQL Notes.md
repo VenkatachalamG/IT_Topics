@@ -215,3 +215,5 @@ SELECT name FROM students;
 
 <h2>📎 Reference</h2><br>
 <p>Check out the full SQL Notes: <a href="SQL Commands.md">SQL Commands</a></p>
+
+<p>Check out SQL Conditionals here : <a href="SQL Conditionals">SQL Conditionals</a></p>
