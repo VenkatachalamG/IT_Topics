@@ -123,6 +123,7 @@ FROM customers A
 RIGHT JOIN orders B
 ON A.customer_id = B.customer_id;
 </code></pre>
+<p>📌 Right table goes first</p>
 <pre><code class="sql">
 -- Equivalent
 A LEFT JOIN B = B RIGHT JOIN A
