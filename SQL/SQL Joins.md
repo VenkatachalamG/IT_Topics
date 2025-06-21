@@ -137,3 +137,6 @@ FULL JOIN orders B
 ON A.customer_id = B.customer_id;
 </code></pre>
 <p>📌 Order does not matter</p>
+
+<h2>📎 Reference</h2>
+<p>Check out the full SQL Notes: <a href="SQL Notes.md">SQL Notes</a></p>
