@@ -1,3 +1,5 @@
+## 📘 SQL Advanced Joins
+
 <h2>🔹 1. Left Anti Join</h2>
 <blockquote>
 📘 <strong>Definition:</strong> Returns all rows from the <strong>left table</strong> that have <u>no matching rows</u> in the right table.
