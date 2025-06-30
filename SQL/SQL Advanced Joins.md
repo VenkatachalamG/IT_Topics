@@ -191,3 +191,6 @@ LEFT JOIN payments ON orders.order_id = payments.order_id;
 </ul>
 
 <p>🔁 You can continue chaining more <code>LEFT JOIN</code>s as needed, following the same pattern.</p>
+
+<h2>📎 Reference</h2>
+<p>Check out the full SQL Notes: <a href="SQL Notes.md">SQL Notes</a></p>
